@@ -14,5 +14,13 @@ projectsRouter.get('/', async (req, res, next) => {
 });
 
 // add new Project
+projectsRouter.post('/', async (req, res, next) => {
+	const projectData = req.body;
+	Projects.createProject(projectData)
+		.then(newProject => {
+			res.status(201).json(newProject)
+		})
+		.catch(next)
+})
 
 module.exports = projectsRouter;
