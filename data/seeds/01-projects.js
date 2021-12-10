@@ -1,8 +1,8 @@
 
 exports.seed = function(knex) {
-  return knex('table_name').truncate()
+  return knex('projects').truncate()
     .then(function () {
-      return knex('table_name').insert([
+      return knex('projects').insert([
         { project_name: 'excellent project', project_description: 'excellent description', 
           project_completed: false } ,
           { project_name: 'super project', project_description: 'super description', 
