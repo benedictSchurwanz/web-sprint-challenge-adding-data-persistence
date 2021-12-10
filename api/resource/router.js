@@ -5,7 +5,7 @@ const resourcesRouter = express.Router()
 
 resourcesRouter.get('/', async (req, res, next) => {
 	try {
-		const data = await Resources.getProjects()
+		const data = await Resources.getResources()
 		res.status(200).json(data)
 	} catch (err) {
 		next(err);
@@ -14,7 +14,7 @@ resourcesRouter.get('/', async (req, res, next) => {
 
 resourcesRouter.post('/', async (req, res, next) => {
 	const resourceData = req.body;
-	Resources.createProject(resourceData)
+	Resources.createResource(resourceData)
 		.then(newResource => {
 			res.status(201).json(newResource)
 		})
