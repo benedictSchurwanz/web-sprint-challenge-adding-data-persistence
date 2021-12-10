@@ -16,7 +16,7 @@ server.use(express.json())
 // 	res.status(err.status || 500).json({ message: err.message})
 // })
 
-server.get('/', (req, res) => {
+server.get('/', (req, res) => { 
 	res.status(200).json({ api: "server is up" })
 })
 
