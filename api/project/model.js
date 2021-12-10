@@ -4,7 +4,6 @@ const getProjects = () => {
 	return db('projects');
 }
 
-
 const getById = async (projectId) => {
 	const [record] = await db('projects')
 		.select()
