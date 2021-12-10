@@ -3,7 +3,6 @@ const Resources = require('./model')
 
 const resourcesRouter = express.Router()
 
-// get all Projects
 resourcesRouter.get('/', async (req, res, next) => {
 	try {
 		const data = await Resources.getProjects()
@@ -13,7 +12,6 @@ resourcesRouter.get('/', async (req, res, next) => {
 	}
 });
 
-// add new Project
 resourcesRouter.post('/', async (req, res, next) => {
 	const resourceData = req.body;
 	Resources.createProject(resourceData)
@@ -24,4 +22,3 @@ resourcesRouter.post('/', async (req, res, next) => {
 })
 
 module.exports = resourcesRouter;
-

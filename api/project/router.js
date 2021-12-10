@@ -3,7 +3,6 @@ const Projects = require('./model')
 
 const projectsRouter = express.Router()
 
-// get all Projects
 projectsRouter.get('/', async (req, res, next) => {
 	try {
 		const data = await Projects.getProjects()
@@ -13,7 +12,6 @@ projectsRouter.get('/', async (req, res, next) => {
 	}
 });
 
-// add new Project
 projectsRouter.post('/', async (req, res, next) => {
 	const projectData = req.body;
 	Projects.createProject(projectData)
