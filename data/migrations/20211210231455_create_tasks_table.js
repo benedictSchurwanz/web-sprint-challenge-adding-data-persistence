@@ -9,11 +9,11 @@ exports.up = function (knex) {
 			.defaultTo(false);
 		table.integer('project_id')
 			.unsigned()
+			.notNullable()
 			.references('project_id')
 			.inTable('projects')
 			.onUpdate('CASCADE')
 			.onDelete('CASCADE')
-			.notNullable()
 	})
 };
 
