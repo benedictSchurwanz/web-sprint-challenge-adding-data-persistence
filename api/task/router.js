@@ -18,7 +18,7 @@ tasksRouter.post('/', async (req, res, next) => {
 	
 	const projectData = Projects.getById(taskData.project_id)
 	
-	Tasks.createTask(taskData)
+	Tasks.createTask({taskData, projectData})
 		.then(newTask => {
 			res.status(201).json(newTask)
 		})
