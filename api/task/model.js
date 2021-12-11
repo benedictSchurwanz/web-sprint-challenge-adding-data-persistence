@@ -11,11 +11,16 @@ const getById = async (taskId) => {
 	return record;
 }
 
-const createTask = ({ newTaskData, projectData }) => {
+const createTask = (newTaskData, projectData) => {
 	return db('tasks')
-		.insert({ ...newTaskData, project_name: projectData.project_name, project_description: projectData.project_description })
+		.insert(newTaskData)
 		.then(taskId => {
-			return getById(taskId)
+			const newTask = getById(taskId)
+			return ({
+				...newTask,
+				project_name: projectData.project_name,
+				project_description: projectData.project_description
+			})
 		})
 }
 
